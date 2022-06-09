@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "991123016544",
+    "project_id": "barokah-mobile-35413",
+    "storage_bucket": "barokah-mobile-35413.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991123016544:android:98d537d4d8e46dd2832c05",
+        "android_client_info": {
+          "package_name": "com.project.barokahmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991123016544-s9pnejuc1enrstap8bosael850crtaqm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.project.barokahmobile",
+            "certificate_hash": "a16abcc749092fbbc99068eb523c8ad2f0bcf6ac"
+          }
+        },
+        {
+          "client_id": "991123016544-slblbgetkltu6q7dgoabior206knfavu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi_xNF7wUxfg_xPpvj8mGIVvwzaUm_pcM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "991123016544-slblbgetkltu6q7dgoabior206knfavu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
