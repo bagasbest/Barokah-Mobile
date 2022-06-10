@@ -1,11 +1,19 @@
 package com.project.barokahmobile.authentication
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.himanshurawat.hasher.HashType
+import com.himanshurawat.hasher.Hasher
+import com.project.barokahmobile.R
 import com.project.barokahmobile.databinding.ActivityLoginBinding
 import com.project.barokahmobile.ui.HomepageActivity
+
 
 class LoginActivity : AppCompatActivity() {
 
@@ -16,6 +24,8 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
+        autoLogin()
+
         binding?.loginBtn?.setOnClickListener {
             formValidation()
         }
@@ -25,18 +35,70 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private fun autoLogin() {
+        if(FirebaseAuth.getInstance().currentUser != null) {
+            startActivity(Intent(this, HomepageActivity::class.java))
+        }
+    }
+
     private fun formValidation() {
         val phone = binding?.phoneNumber?.text.toString().trim()
+        val password = binding?.password?.text.toString().trim()
         if(phone.isEmpty()) {
             Toast.makeText(this, "Nomor Handphone tidak boleh kosong", Toast.LENGTH_SHORT).show()
         } else if (phone.length < 9 || phone.length > 13) {
             Toast.makeText(this, "Nomor Handphone terdiri dari 9 - 13 digit", Toast.LENGTH_SHORT).show()
-        } else {
+        } else if (password.isEmpty()) {
+            Toast.makeText(this, "Kata sandi tidak boleh kosong!", Toast.LENGTH_SHORT).show()
+        }
+        else {
 
-            startActivity(Intent(this, HomepageActivity::class.java))
+            binding!!.progressBar.visibility = View.VISIBLE
 
+            FirebaseFirestore
+                .getInstance()
+                .collection("users")
+                .whereEqualTo("phone", phone)
+                .limit(1)
+                .get()
+                .addOnSuccessListener { documents ->
+
+                    if(documents.size() > 0) {
+                        for (document in documents) {
+                            val email = document.data["email"].toString()
+                            val pwd = document.data["password"].toString()
+
+                            if(pwd == Hasher.hash(password, HashType.SHA_256)) {
+                                FirebaseAuth.getInstance()
+                                    .signInWithEmailAndPassword(email, password)
+                                    .addOnCompleteListener {
+                                        if(it.isSuccessful) {
+                                            startActivity(Intent(this, HomepageActivity::class.java))
+                                        } else {
+                                            showFailureDialog()
+                                        }
+                                    }
+                            } else {
+                                showFailureDialog()
+                            }
+                        }
+                    } else {
+                      showFailureDialog()
+                    }
+                }
         }
     }
+
+    /// jika gagal login, munculkan alert dialog gagal
+    private fun showFailureDialog() {
+        AlertDialog.Builder(this)
+            .setTitle("Gagal Login")
+            .setMessage("1. Periksa Nomor Handphone, pastikan anda sudah mendaftarkan pada aplikasi Barokah Mobile\n\n2. Pastikan koneksi internet anda tidak bermasalah!")
+            .setIcon(R.drawable.ic_baseline_clear_24)
+            .setPositiveButton("OKE") { dialogInterface, _ -> dialogInterface.dismiss() }
+            .show()
+    }
+
 
     override fun onDestroy() {
         super.onDestroy()

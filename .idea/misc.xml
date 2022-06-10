@@ -3,11 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/drawable/bg_border_phone.xml" value="0.154" />
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/drawable/bg_rounded.xml" value="0.154" />
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/drawable/bg_rounded_bottom.xml" value="0.154" />
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/layout/activity_login.xml" value="0.23645833333333333" />
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/layout/activity_main.xml" value="0.23282051282051283" />
-        <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/layout/activity_register.xml" value="0.2" />
+        <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/layout/activity_register.xml" value="0.152" />
       </map>
     </option>
   </component>
