@@ -57,10 +57,10 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "Nomor Handphone wajib diisi!", Toast.LENGTH_SHORT).show();
             } else if (phone.toString()[0] != '+') {
                 Toast.makeText(this, "Nomor handphone wajib diawali +62", Toast.LENGTH_SHORT)
-                    .show();
+                    .show()
             } else {
                 binding?.layout1?.visibility = View.GONE
-                binding?.layout2?.visibility = View.GONE
+                binding?.layout2?.visibility = View.VISIBLE
 
                 binding?.phoneTxt?.text = "Nomor Handphone anda adalah:\n$phone"
 
@@ -69,6 +69,8 @@ class RegisterActivity : AppCompatActivity() {
                 countdownTimer()
             }
         }
+
+
 
         binding?.nextBtn2?.setOnClickListener { formValidationOTP() }
 
@@ -133,22 +135,18 @@ class RegisterActivity : AppCompatActivity() {
 
 
     private fun formValidation() {
-        val phone = binding?.phoneNumber?.text.toString().trim()
         val name = binding?.name?.text.toString().trim()
         val email = binding?.email?.text.toString().trim()
         val password = binding?.password?.text.toString().trim()
         val address = binding?.address?.text.toString().trim()
 
-        if (phone.isEmpty()) {
+        if (phone == null) {
             Toast.makeText(this, "Nomor Handphone tidak boleh kosong", Toast.LENGTH_SHORT).show()
-        } else if (phone.length < 9 || phone.length > 13) {
-            Toast.makeText(this, "Nomor Handphone terdiri dari 9 - 13 digit", Toast.LENGTH_SHORT)
-                .show()
         } else if (name.isEmpty()) {
             Toast.makeText(this, "Nama lengkap tidak boleh kosong", Toast.LENGTH_SHORT).show()
         } else if (email.isEmpty()) {
             Toast.makeText(this, "Email tidak boleh kosong", Toast.LENGTH_SHORT).show()
-        } else if (Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(this, "Email harus mengandung @ dan diikuti .com", Toast.LENGTH_SHORT)
                 .show()
         } else if (password.isEmpty()) {
@@ -164,7 +162,7 @@ class RegisterActivity : AppCompatActivity() {
                 .createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task: Task<AuthResult?> ->
                     if (task.isSuccessful) {
-                        saveDataToDB(phone, name, email, address, password)
+                        saveDataToDB(phone!!, name, email, address, password)
                     } else {
                         binding!!.progressBar.visibility = View.GONE
                         try {
@@ -255,6 +253,8 @@ class RegisterActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
                     .addOnCompleteListener { task: Task<AuthResult?> ->
                         if (task.isSuccessful) {
+                            binding?.phoneNumber?.setText(phone)
+                            binding?.phoneNumberView?.isEnabled = false
                             binding?.layout2?.visibility = View.GONE
                             binding?.layout3?.visibility = View.VISIBLE
                         } else {
@@ -287,7 +287,7 @@ class RegisterActivity : AppCompatActivity() {
                     getBackendOtp = backendOtp
                     Toast.makeText(
                         this@RegisterActivity,
-                        "OTP Send Successfully!",
+                        "Silahkan tunggu kode verifikasi!",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

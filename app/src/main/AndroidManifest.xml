@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.project.barokahmobile">
+    <queries>
+        <package android:name="com.whatsapp" />
+    </queries>
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -17,6 +20,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarokahMobile"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.HomepageAdminActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.HomepageActivity"
             android:exported="false" />

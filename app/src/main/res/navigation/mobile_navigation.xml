@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_calculate">
+
+    <fragment
+        android:id="@+id/navigation_calculate"
+        android:name="com.project.barokahmobile.ui.menghitung_pakan.CalculatePakanFragment"
+        android:label="Menghitung Harga Pakan"
+        tools:layout="@layout/fragment_calculate_pakan" />
+
+    <fragment
+        android:id="@+id/navigation_egg"
+        android:name="com.project.barokahmobile.ui.hpp_telur.HppEggFragment"
+        android:label="HPP Telur Ayam"
+        tools:layout="@layout/fragment_hpp_egg" />
+
+    <fragment
+        android:id="@+id/navigation_info"
+        android:name="com.project.barokahmobile.ui.info_pakan.InfoPakanFragment"
+        android:label="Info Harga Pakan"
+        tools:layout="@layout/fragment_info_pakan" />
+
+
+</navigation>

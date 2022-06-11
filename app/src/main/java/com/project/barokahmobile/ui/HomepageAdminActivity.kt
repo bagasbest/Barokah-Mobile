@@ -6,18 +6,19 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 import com.project.barokahmobile.R
-import com.project.barokahmobile.databinding.ActivityHomepageBinding
+import com.project.barokahmobile.databinding.ActivityHomepageAdminBinding
+import com.project.barokahmobile.ui.database_user.DatabaseFragment
 import com.project.barokahmobile.ui.hpp_telur.HppEggFragment
 import com.project.barokahmobile.ui.info_pakan.InfoPakanFragment
 import com.project.barokahmobile.ui.menghitung_pakan.CalculatePakanFragment
 
-class HomepageActivity : AppCompatActivity() {
+class HomepageAdminActivity : AppCompatActivity() {
 
-    private var binding : ActivityHomepageBinding ?= null
+    private var binding : ActivityHomepageAdminBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHomepageBinding.inflate(layoutInflater)
+        binding = ActivityHomepageAdminBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
         val navView = findViewById<ChipNavigationBar>(R.id.nav_view)
@@ -28,7 +29,6 @@ class HomepageActivity : AppCompatActivity() {
 
 
         bottomMenu(navView)
-
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -39,6 +39,7 @@ class HomepageActivity : AppCompatActivity() {
                 R.id.navigation_calculate -> fragment = CalculatePakanFragment()
                 R.id.navigation_egg -> fragment = HppEggFragment()
                 R.id.navigation_info -> fragment = InfoPakanFragment()
+                R.id.navigation_database -> fragment = DatabaseFragment()
             }
             supportFragmentManager.beginTransaction()
                 .replace(

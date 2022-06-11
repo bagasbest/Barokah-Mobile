@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_calculate"
+        android:icon="@drawable/ic_baseline_calculate_24"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white"
+        android:title="Menghitung" />
+
+    <item
+        android:id="@+id/navigation_egg"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white"
+        android:icon="@drawable/ic_baseline_egg_24"
+        android:title="HPP Telur" />
+
+    <item
+        android:id="@+id/navigation_info"
+        app:cnb_iconColor="@color/white"
+        app:cnb_textColor="@color/white"
+        android:icon="@drawable/ic_baseline_info_24"
+        android:title="Info Terbaru" />
+</menu>
