@@ -8,6 +8,7 @@
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/drawable/bg_rounded.xml" value="0.154" />
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/drawable/bg_rounded_bottom.xml" value="0.154" />
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/drawable/bg_rounded_btn.xml" value="0.154" />
+        <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/drawable/bg_rounded_rv.xml" value="0.162" />
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/layout/activity_homepage.xml" value="0.2" />
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/layout/activity_homepage_admin.xml" value="0.23645833333333333" />
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/layout/activity_login.xml" value="0.23645833333333333" />
@@ -18,6 +19,7 @@
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/layout/fragment_hpp_egg.xml" value="0.2328125" />
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/layout/fragment_info_pakan.xml" value="0.2328125" />
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/layout/item_database_user.xml" value="0.264" />
+        <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/layout/popup_result.xml" value="0.2328125" />
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/menu/bottom_nav_menu.xml" value="0.23645833333333333" />
         <entry key="..\:/TUBES_GALERI/BarokahMobile/app/src/main/res/menu/bottom_nav_menu_admin.xml" value="0.536" />
       </map>

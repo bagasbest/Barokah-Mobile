@@ -67,7 +67,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="Membantu peternak dalam menghitung harga pokok produksi telur"
+                    android:text="Membantu peternak dalam menghitung harga pokok produksi (HPP) telur"
                     android:textStyle="bold" />
 
             </LinearLayout>
