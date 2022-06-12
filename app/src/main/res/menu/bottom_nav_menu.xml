@@ -7,19 +7,19 @@
         android:icon="@drawable/ic_baseline_calculate_24"
         app:cnb_iconColor="@color/white"
         app:cnb_textColor="@color/white"
-        android:title="Menghitung" />
+        android:title="Menghitung Harga Pakan" />
 
     <item
         android:id="@+id/navigation_egg"
         app:cnb_iconColor="@color/white"
         app:cnb_textColor="@color/white"
         android:icon="@drawable/ic_baseline_egg_24"
-        android:title="HPP Telur" />
+        android:title="Menghitung HPP Telur" />
 
     <item
         android:id="@+id/navigation_info"
         app:cnb_iconColor="@color/white"
         app:cnb_textColor="@color/white"
         android:icon="@drawable/ic_baseline_info_24"
-        android:title="Info Terbaru" />
+        android:title="Info Harga Terbaru" />
 </menu>

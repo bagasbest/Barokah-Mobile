@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.project.barokahmobile.R
 import com.project.barokahmobile.authentication.LoginActivity
@@ -26,6 +27,11 @@ class CalculatePakanFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentCalculatePakanBinding.inflate(inflater, container, false)
+
+        Glide.with(requireContext())
+            .load(R.drawable.pakan)
+            .into(binding.image)
+
         return binding.root
     }
 
