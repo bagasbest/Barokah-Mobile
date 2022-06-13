@@ -4,12 +4,12 @@ import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.firestore.FirebaseFirestore
@@ -18,6 +18,7 @@ import com.project.barokahmobile.R
 import com.project.barokahmobile.databinding.ActivityInfoPakanEditBinding
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class InfoPakanEditActivity : AppCompatActivity() {
 
@@ -32,8 +33,9 @@ class InfoPakanEditActivity : AppCompatActivity() {
         setContentView(binding?.root)
 
         model = intent.getParcelableExtra(EXTRA_DATA)
+        infoImage = model?.image
         Glide.with(this)
-            .load(model?.image)
+            .load(infoImage)
             .into(binding!!.image)
 
         binding?.name?.setText(model?.name)
@@ -75,9 +77,7 @@ class InfoPakanEditActivity : AppCompatActivity() {
             data["name"] = name
             data["description"] = description
             data["date"] = formattedDate
-            if(infoImage != null) {
-                data["image"] = infoImage!!
-            }
+            data["image"] = infoImage!!
 
             FirebaseFirestore
                 .getInstance()
@@ -86,8 +86,15 @@ class InfoPakanEditActivity : AppCompatActivity() {
                 .update(data)
                 .addOnCompleteListener {
                     if(it.isSuccessful) {
+                        val model = InfoPakanModel()
+                        model.image = infoImage
+                        model.name = name
+                        model.description = description
+                        model.date = formattedDate
+                        model.uid = model.uid
+
                         binding?.progressBar?.visibility = View.GONE
-                        showSuccessDialog()
+                        showSuccessDialog(model)
                     } else {
                         binding?.progressBar?.visibility = View.GONE
                         showFailureDialog()
@@ -109,14 +116,17 @@ class InfoPakanEditActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun showSuccessDialog() {
+    private fun showSuccessDialog(model: InfoPakanModel) {
         AlertDialog.Builder(this)
             .setTitle("Sukses Memperbarui Informasi")
             .setMessage("Informasi ini akan tampil sesaat lagi")
             .setIcon(R.drawable.ic_baseline_check_circle_outline_24)
             .setPositiveButton("OKE") { dialogInterface, _ ->
                 dialogInterface.dismiss()
-                onBackPressed()
+                val returnIntent = Intent()
+                returnIntent.putExtra("result", model)
+                setResult(RESULT_OK, returnIntent)
+                finish()
             }
             .show()
     }

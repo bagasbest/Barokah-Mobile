@@ -20,7 +20,7 @@
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -128,47 +128,78 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:text="FCR = jumlah campuran dlm sehari (kg) / jumlah total telor yg dihasilkan dlm sehari (kg)." />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                android:id="@+id/fcr"
+                android:textColor="@color/black"
+                android:text="Diperoleh FCR = "/>
+
+            <LinearLayout
+                android:id="@+id/content"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:orientation="vertical">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/feedPrice"
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Harga campuran pakan per kg"
-                    android:inputType="number" />
+                    android:layout_marginTop="10dp">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/feedPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Biaya campuran pakan per kg"
+                        android:inputType="number" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/otherPrice"
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Biaya lain - lain"
-                    android:inputType="number" />
+                    android:layout_marginTop="10dp">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/otherPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Biaya lain - lain (vitamin dan tenaga kerja)"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:id="@+id/submitBtn"
-                android:layout_marginBottom="50dp"
-                android:textAllCaps="false"
-                android:text="Hasil Penghitungan Harga"
-                android:background="@drawable/bg_rounded_btn"
-                android:backgroundTint="@color/green" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:id="@+id/submitBtn"
+                    android:layout_marginBottom="50dp"
+                    android:textAllCaps="false"
+                    android:text="Munculkan HPP telur"
+                    android:background="@drawable/bg_rounded_btn"
+                    android:backgroundTint="@color/green" />
+
+
+            </LinearLayout>
 
         </LinearLayout>
 

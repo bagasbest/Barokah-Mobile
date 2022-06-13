@@ -16,6 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.project.barokahmobile.R
 import com.project.barokahmobile.authentication.LoginActivity
 import com.project.barokahmobile.databinding.FragmentCalculatePakanBinding
@@ -24,13 +25,20 @@ import java.text.DecimalFormat
 
 class CalculatePakanFragment : Fragment() {
 
-
     private var _binding: FragmentCalculatePakanBinding? = null
+
+    // This property is only valid between onCreateView and
+    // onDestroyView.
     private val binding get() = _binding!!
 
+    override fun onResume() {
+        super.onResume()
+        checkIfCalculated()
+    }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
@@ -40,11 +48,48 @@ class CalculatePakanFragment : Fragment() {
             .load(R.drawable.pakan)
             .into(binding.image)
 
+
         return binding.root
+    }
+
+    private fun checkIfCalculated() {
+        val uid = FirebaseAuth.getInstance().currentUser!!.uid
+        FirebaseFirestore
+            .getInstance()
+            .collection("calculate_pakan")
+            .document(uid)
+            .get()
+            .addOnSuccessListener {
+
+                if(it.exists()) {
+                    val concentrate = "" + it.data!!["concentrate"]
+                    val corn = "" + it.data!!["corn"]
+                    val katul = "" + it.data!!["katul"]
+                    val concentratePrice = "" + it.data!!["concentratePrice"]
+                    val cornPrice = "" + it.data!!["cornPrice"]
+                    val katulPrice = "" + it.data!!["katulPrice"]
+
+                    val f1 = String.format("%.0f", concentrate.toDouble())
+                    val f2 = String.format("%.0f", corn.toDouble())
+                    val f3 = String.format("%.0f", katul.toDouble())
+                    val f4 = String.format("%.0f", concentratePrice.toDouble())
+                    val f5 = String.format("%.0f", cornPrice.toDouble())
+                    val f6 = String.format("%.0f", katulPrice.toDouble())
+
+
+                    binding.concentrate.setText(f1)
+                    binding.corn.setText(f2)
+                    binding.katul.setText(f3)
+                    binding.concentratePrice.setText(f4)
+                    binding.cornPrice.setText(f5)
+                    binding.katulPrice.setText(f6)
+                }
+            }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
 
         binding.logoutBtn.setOnClickListener {
@@ -58,6 +103,10 @@ class CalculatePakanFragment : Fragment() {
 
         binding.submitBtn.setOnClickListener {
             formValidation()
+        }
+
+        binding.location.setOnClickListener {
+            startActivity(Intent(activity, LocationActivity::class.java))
         }
     }
 
@@ -139,9 +188,9 @@ class CalculatePakanFragment : Fragment() {
 
         val formatter = DecimalFormat("#,###")
         title.text = "Hasil Harga Campuran\nPakan Ayam per kilogram"
-        concentrateTotalTv.text = "Jumlah Konsentrat : $concentrate"
-        cornTotalTv.text = "Jumlah jagung : $corn"
-        katulTotalTv.text = "Jumlah katul : $katul"
+        concentrateTotalTv.text = "Jumlah Konsentrat : $concentrate kg"
+        cornTotalTv.text = "Jumlah jagung : $corn kg"
+        katulTotalTv.text = "Jumlah katul : $katul kg"
         concentratePriceTv.text = "Harga konsentrat : $concentratePrice per kg"
         cornPriceTv.text = "Harga jagung : $concentratePrice per kg"
         katulPriceTv.text = "Harga katul : $concentratePrice per kg"
@@ -150,6 +199,24 @@ class CalculatePakanFragment : Fragment() {
         val formula : Double = ((concentrate * concentratePrice) + (corn * cornPrice) + (katul * katulPrice)) / (concentrate + corn + katul)
         price1Tv.text = "Rp${formatter.format(formula)}"
 
+        val uid = FirebaseAuth.getInstance().currentUser!!.uid
+        val result = String.format("%.0f", formula)
+        val data = mapOf(
+            "uid" to uid,
+            "concentrate" to concentrate.toString(),
+            "corn" to corn.toString(),
+            "katul" to katul.toString(),
+            "concentratePrice" to concentratePrice.toString(),
+            "cornPrice" to cornPrice.toString(),
+            "katulPrice" to katulPrice.toString(),
+            "result" to result,
+        )
+
+        FirebaseFirestore
+            .getInstance()
+            .collection("calculate_pakan")
+            .document(uid)
+            .set(data)
 
         dismissBtn.setOnClickListener {
             dialog.dismiss()
@@ -162,10 +229,8 @@ class CalculatePakanFragment : Fragment() {
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        super.onDestroyView()
         _binding = null
     }
-
-
 }
