@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.project.barokahmobile">
+
     <queries>
         <package android:name="com.whatsapp" />
     </queries>
@@ -14,12 +15,21 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_smaller"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo_smaller"
         android:supportsRtl="true"
         android:theme="@style/Theme.BarokahMobile"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.info_pakan.InfoPakanEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.info_pakan.InfoPakanDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.info_pakan.InfoPakanAddActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.HomepageAdminActivity"
             android:exported="false" />

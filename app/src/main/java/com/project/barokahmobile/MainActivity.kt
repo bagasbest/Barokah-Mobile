@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.bumptech.glide.Glide
 import com.project.barokahmobile.authentication.LoginActivity
 import com.project.barokahmobile.databinding.ActivityMainBinding
 
@@ -16,6 +17,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+
+        Glide.with(this)
+            .load(R.drawable.logo)
+            .into(binding!!.image)
 
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, LoginActivity::class.java))
