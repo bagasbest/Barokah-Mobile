@@ -36,6 +36,7 @@ class DatabaseAdapter : RecyclerView.Adapter<DatabaseAdapter.ViewHolder>() {
                 binding.phoneNumber.text = "No.Handphone: ${model.phone}"
                 binding.email.text = "Email : ${model.email}"
                 binding.address.text = "Alamat: ${model.address}"
+                binding.population.text = "Populasi Ternak: ${model.population}"
 
 
                 waBtn.setOnClickListener {

@@ -81,7 +81,7 @@
             android:layout_marginStart="16sp"
             android:layout_marginTop="16sp"
             android:layout_marginEnd="16sp"
-            android:text="Silahkan inputkan jumlah produksi telur dan biaya, dibawah ini"
+            android:text="Silahkan masukkan jumlah pemakaian pakan per hari, jumlah telor yang dihasilkan per hari, dan biaya lain-lain di bawah ini :"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

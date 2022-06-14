@@ -67,6 +67,11 @@
             android:text="Alamat: "
             android:id="@+id/address" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Populasi ternak: "
+            android:id="@+id/population" />
 
     </LinearLayout>
 

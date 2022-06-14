@@ -30,6 +30,7 @@ class DatabaseViewModel : ViewModel() {
                         model.phone = document.data["phone"].toString()
                         model.address = document.data["address"].toString()
                         model.uid = document.data["uid"].toString()
+                        model.population = document.data["population"].toString()
 
                         listItems.add(model)
                     }

@@ -6,246 +6,254 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <LinearLayout
-        android:layout_width="350dp"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_rounded_rv"
-        android:backgroundTint="@color/white"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="25dp">
-
-        <TextView
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
+        android:backgroundTint="@color/white">
 
         <LinearLayout
-            android:id="@+id/calculate"
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Diketahui :"
-                android:textStyle="bold"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jumlah Konsentrat : "
-                android:layout_marginTop="16sp"
-                android:textSize="16sp"
-                android:id="@+id/concentrateTotal"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jumlah Jagung : "
-                android:textSize="16sp"
-                android:id="@+id/cornTotal"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jumlah Katul : "
-                android:textSize="16sp"
-                android:id="@+id/katulTotal"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Harga Konsentrat / kg : "
-                android:textSize="16sp"
-                android:id="@+id/concentratePrice"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Harga Jagung / kg : "
-                android:textSize="16sp"
-                android:id="@+id/cornPrice"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Harga Katul / kg : "
-                android:textSize="16sp"
-                android:id="@+id/katulPrice"/>
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16sp"
-                android:background="#EAEAEA" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hasil :"
-                android:textStyle="bold"
-                android:layout_marginTop="16sp"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:layout_marginTop="16sp"
-                android:text="Dari data yang anda masukkan diatas, kami memberikan estimasi harga campuran pakan per kilogram adalah : " />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rp0"
-                android:textSize="18sp"
-                android:layout_marginTop="16sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:id="@+id/price" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/hpp"
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Diketahui :"
-                android:textStyle="bold"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jumlah campuran pakan dalam 1 hari (kg) : "
-                android:layout_marginTop="16sp"
-                android:textSize="16sp"
-                android:id="@+id/combineFeed"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jumlah telur yang dihasilkan 1 hari (kg) : "
-                android:textSize="16sp"
-                android:layout_marginTop="10dp"
-                android:id="@+id/eggProduction"/>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="FCR : "
-                android:textSize="16sp"
-                android:layout_marginTop="10dp"
-                android:id="@+id/fcr"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Harga campuran pakan per kg : "
-                android:textSize="16sp"
-                android:layout_marginTop="10dp"
-                android:id="@+id/feedPrice"/>
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Biaya lain - lain : "
-                android:textSize="16sp"
-                android:layout_marginTop="10dp"
-                android:id="@+id/otherPrice"/>
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16sp"
-                android:background="#EAEAEA" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hasil :"
-                android:textStyle="bold"
-                android:layout_marginTop="16sp"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16sp"
-                android:textSize="16sp"
-                android:text="Dari data yang anda masukkan diatas, kami memberikan estimasi harga pokok produksi (HPP) telur adalah :" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rp0"
-                android:textSize="18sp"
-                android:layout_marginTop="16sp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:id="@+id/price2" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="50dp"
-            android:orientation="horizontal">
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="25dp">
 
-            <Button
-                android:layout_width="120dp"
-                android:textStyle="bold"
+            <TextView
+                android:id="@+id/editText"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="tutup"
-                android:id="@+id/dismissBtn"
-                android:layout_marginEnd="16sp"
-                android:background="@drawable/bg_rounded_rv" />
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
 
-            <Button
-                android:layout_width="120dp"
-                android:textStyle="bold"
-                android:visibility="gone"
+            <LinearLayout
+                android:id="@+id/calculate"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Simpan"
-                android:id="@+id/saveBtn"
-                android:layout_marginStart="16sp"
-                android:background="@drawable/bg_rounded_rv" />
+                android:layout_marginTop="30dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diketahui :"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/concentrateTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16sp"
+                    android:text="Jumlah Konsentrat : "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/cornTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jumlah Jagung : "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/katulTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jumlah Katul : "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/concentratePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Harga Konsentrat / kg : "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/cornPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Harga Jagung / kg : "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/katulPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Harga Katul / kg : "
+                    android:textSize="16sp" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16sp"
+                    android:background="#EAEAEA" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16sp"
+                    android:text="Hasil :"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16sp"
+                    android:text="Dari data yang anda masukkan diatas, kami memberikan estimasi harga campuran pakan per kilogram adalah : "
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16sp"
+                    android:text="Rp0"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/hpp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diketahui :"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/combineFeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16sp"
+                    android:text="Jumlah campuran pakan dalam 1 hari (kg) : "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/eggProduction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Jumlah telur yang dihasilkan 1 hari (kg) : "
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/fcr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="FCR : "
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/feedPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Harga campuran pakan per kg : "
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/otherPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Biaya lain - lain : "
+                    android:textSize="16sp" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16sp"
+                    android:background="#EAEAEA" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16sp"
+                    android:text="Hasil :"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16sp"
+                    android:text="Dari data yang anda masukkan diatas, kami memberikan estimasi harga pokok produksi (HPP) telur adalah :"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/price2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16sp"
+                    android:text="Rp0"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/dismissBtn"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16sp"
+                    android:background="@drawable/bg_rounded_rv"
+                    android:text="tutup"
+                    android:textStyle="bold" />
+
+
+                <Button
+                    android:id="@+id/saveBtn"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16sp"
+                    android:background="@drawable/bg_rounded_rv"
+                    android:text="Simpan"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
 
 
         </LinearLayout>
 
 
+    </ScrollView>
 
-    </LinearLayout>
 
 
 </RelativeLayout>

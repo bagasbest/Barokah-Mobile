@@ -144,6 +144,7 @@ class RegisterActivity : AppCompatActivity() {
         val email = binding?.email?.text.toString().trim()
         val password = binding?.password?.text.toString().trim()
         val address = binding?.address?.text.toString().trim()
+        val population = binding?.population?.text.toString().trim()
 
         if (phone == null) {
             Toast.makeText(this, "Nomor Handphone tidak boleh kosong", Toast.LENGTH_SHORT).show()
@@ -160,6 +161,8 @@ class RegisterActivity : AppCompatActivity() {
             Toast.makeText(this, "Kata sandi minimum 6 karakter", Toast.LENGTH_SHORT).show()
         } else if (address.isEmpty()) {
             Toast.makeText(this, "Alamat tidak boleh kosong", Toast.LENGTH_SHORT).show()
+        } else if (population.isEmpty()) {
+            Toast.makeText(this, "Populasi ternak tidak boleh kosong", Toast.LENGTH_SHORT).show()
         } else {
 
             binding!!.progressBar.visibility = View.VISIBLE
@@ -167,7 +170,7 @@ class RegisterActivity : AppCompatActivity() {
                 .createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task: Task<AuthResult?> ->
                     if (task.isSuccessful) {
-                        saveDataToDB(phone!!, name, email, address, password)
+                        saveDataToDB(phone!!, name, email, address, password, population)
                     } else {
                         binding!!.progressBar.visibility = View.GONE
                         try {
@@ -189,6 +192,7 @@ class RegisterActivity : AppCompatActivity() {
         email: String,
         address: String,
         password: String,
+        population: String,
     ) {
         val uid = FirebaseAuth.getInstance().currentUser!!.uid
         val data = mapOf(
@@ -198,6 +202,7 @@ class RegisterActivity : AppCompatActivity() {
             "email" to email,
             "password" to Hasher.hash(password, HashType.SHA_256),
             "address" to address,
+            "population" to population,
             "role" to "user",
         )
 

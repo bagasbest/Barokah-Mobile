@@ -12,4 +12,5 @@ data class DatabaseModel(
     var password : String? = null,
     var address : String? = null,
     var role : String? = null,
+    var population : String? = null,
 ) : Parcelable

@@ -372,6 +372,21 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                app:startIconDrawable="@drawable/ic_baseline_egg_24"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/population"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Populasi Ternak"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
             <ProgressBar
